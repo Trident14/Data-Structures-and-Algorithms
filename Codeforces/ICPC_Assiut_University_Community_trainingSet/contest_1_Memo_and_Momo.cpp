@@ -1,3 +1,12 @@
+//https://codeforces.com/group/MWSDmqGsZm/contest/326175/problem/B
+/*input:
+15 7 3
+output:
+Memo
+input:
+22 10 2
+output:
+Both    */
 #include<iostream>
 #include<vector>
 #include<iomanip>
