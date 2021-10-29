@@ -10,6 +10,7 @@ int count_subset_with_Sum(int ind,vector<int>&arr,int n,int sum){
             return 0;
         }
     }
+    //keep picking if current element is less than sum
     if(arr[ind]<=sum){
         sum-=arr[ind];
         l+=count_subset_with_Sum(ind,arr,n,sum);
