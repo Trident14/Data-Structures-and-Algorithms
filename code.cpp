@@ -1,27 +1,46 @@
-#include<iostream>
-#include<string>
-using namespace std;
-int m,n;
-void findPath(int i,int j,string str){
-    //one base case to check if we crossed boundary
-    if(i>=n or j>=m) return;
-    if(i==n-1 and j==m-1){
-        cout<<str<<"\n";
-        return;
-    }
-    str+='R';
-    findPath(i,j+1,str);
-    str.pop_back();
+/*  
+https://www.codechef.com/NOV21C/problems/EQUALCOIN
 
-    str+='D';
-    findPath(i+1,j,str);
-    str.pop_back();
-}
+Sample Input 1 
+4
+2 2
+1 3
+4 0
+1 10
+Sample Output 1 
+YES
+NO
+YES
+NO
+
+*/
+
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    string str="";
-    cin>>m>>n;
-    findPath(0,0,str);
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int>arr(n);
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        sort(arr.begin(),arr.end());
+        int sum=0;
+        for(int i=0;i<n-1;i++){
+            sum+=arr[i];
+        }
+        if(sum==arr[n-1]){
+            cout<<0<<"\n";
+        }else{
+            cout<<1<<"\n";
+        }
+    }
 return 0;
 }
