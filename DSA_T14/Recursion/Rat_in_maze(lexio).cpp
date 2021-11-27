@@ -7,18 +7,22 @@ vector<string>ans;
 string dir="DLRU";
 int di[]={1,0,0,-1};
 int dj[]={0,-1,1,0};
-void findPath(int i,int j,string str,vector<vector<int>>&vis,vector<vector<int>>&arr){
+void findPath(vector<vector<int>>ans,int i,int j,string str,vector<vector<int>>&vis,vector<vector<int>>&arr){
     //one base case to check if we crossed boundary
     if(i>=n or j>=m or i<0 or j<0 or vis[i][j]==1 or arr[i][j]==0) return ;
     if(i==n-1 and j==m-1){
-        ans.push_back(str);
+        for(int k=0;k<=n;k++){
+            for(int l=0;l<=m;l++){
+                ans[k][l] = arr[k][l];
+            }cout<<endl;
+        }
         return;
     }
     vis[i][j]=1;
 
     for(int x=0;x<4;x++){
         str+=dir[x];
-        findPath(i+di[x],j+dj[x],str,vis,arr);
+        findPath(ans,i+di[x],j+dj[x],str,vis,arr);
         str.pop_back();
     }
     //str+='R';
@@ -49,9 +53,7 @@ int main(){
                            {1,1,0,1},
                             {0,1,0,0}, 
                             {0,1,1,1}};
-    findPath(0,0,str,vis,arr);
-    for(auto it:ans){
-        cout<<it<<" ";
-    }
+    vector<vector<int>>ans=arr;
+    findPath(ans,0,0,str,vis,arr);
 return 0;
 }
