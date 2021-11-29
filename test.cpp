@@ -10,6 +10,7 @@ public:
         if(top>=(size-1)){
             cout<<"Stack Overflow\n";
         }else{
+            
             arr[++top]=data;
             cout<<data<<" pushed into stack\n";
         }
