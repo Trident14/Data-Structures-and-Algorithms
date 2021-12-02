@@ -27,9 +27,9 @@ Node* BuildTree(){
     n->right=BuildTree(); // creates right subtree
     return n;
 }
-void sumNodes(Node* root){
+int sumNodes(Node* root,int sum){
         // Code here
-    vector<int>res;
+    int res = 0;
     queue<Node*> q;
     q.push(root);
     while(!q.empty())
@@ -38,18 +38,43 @@ void sumNodes(Node* root){
         q.pop();
         if(f->left) q.push(f->left);
         if(f->right) q.push(f->right);
-        res.push_back(f->data);
+        res += f->data;
     }
-    for(auto it:res){
-        cout<<it<<" ";
-    }
+    return res;
 
     }
+    //or
+int  sumOf_Nodes(Node* root, int k){
+    int sum=0;
+    vector<vector<int>>res;
+    if(root==NULL){
+        return 0;
+    }
+    queue<Node* >q;
+    q.push(root);
+    while(!q.empty()){
+        int length=q.size();
+        vector<int>level;
+        for(int i=0;i<length;i++){
+        Node* temp=q.front();
+        q.pop();
+        if(temp->left!=NULL){
+            q.push(temp->left);
+        }
+        if(temp->right!=NULL){
+            q.push(temp->right);
+        }
+        sum+=temp->data;
+    }
+}
+    
+    return sum;
+}
 
 int main(){
     Node*root=BuildTree();
     //cout<<height(root);
-    sumNodes(root);
+    cout<<printKthLevel(root,3);
 
     
 }

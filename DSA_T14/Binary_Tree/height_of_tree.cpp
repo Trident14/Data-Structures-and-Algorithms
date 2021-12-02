@@ -1,4 +1,7 @@
-
+/* Preorder Build tree and Preorder Print 
+input:1,2,4,-1,-1,5,7,-1,-1,-1,3,-1,6,-1,-1
+output:1,2,4,5,7,3,6
+*/
 #include<iostream>
 #include<stack>
 #include<queue>
@@ -27,29 +30,14 @@ Node* BuildTree(){
     n->right=BuildTree(); // creates right subtree
     return n;
 }
-void sumNodes(Node* root){
-        // Code here
-    vector<int>res;
-    queue<Node*> q;
-    q.push(root);
-    while(!q.empty())
-    {
-        Node* f = q.front();
-        q.pop();
-        if(f->left) q.push(f->left);
-        if(f->right) q.push(f->right);
-        res.push_back(f->data);
-    }
-    for(auto it:res){
-        cout<<it<<" ";
-    }
 
-    }
-
+int height(Node* root){
+    if(root==NULL) return 0;
+    int m=height(root->left);
+    int n=height(root->right);
+    return 1+max(m,n);
+}
 int main(){
     Node*root=BuildTree();
-    //cout<<height(root);
-    sumNodes(root);
-
-    
+    cout<<height(root);
 }
