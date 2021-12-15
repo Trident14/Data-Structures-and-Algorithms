@@ -1,4 +1,8 @@
-#include<iostream>
+/* Preorder Build tree and Preorder Print 
+input:1,2,4,-1,-1,5,7,-1,-1,-1,3,-1,6,-1,-1
+output:1,2,4,5,7,3,6
+*/
+#include<bits/stdc++.h>
 using namespace std;
 class Node{
 public:
@@ -10,7 +14,7 @@ public:
         left=right=NULL;
     }
 };
-
+//returen the root nose of the tree
 Node* BuildTree(){
     int data;
     cin>>data;
@@ -23,17 +27,25 @@ Node* BuildTree(){
     n->right=BuildTree(); // creates right subtree
     return n;
 }
-//PostOrder left righ root
-void postOrder(Node*root){
+
+int MaxPathSum(Node*root,int &maxi){
     if(root==NULL){
-        return;
+        return 0;
     }
-    postOrder(root->left);
-    postOrder(root->right);
-    cout<<root->data<<" ";
+    MaxPathSum(root->left,maxi);
+    MaxPathSum(root->right,maxi);
+    maxi+=root->data;
 }
 
 int main(){
     Node*root=BuildTree();
-    postOrder(root);
+    int maxi=0;
+    MaxPathSum(root,maxi);
+    if(maxi-root->data==root->data){
+        cout<<"yes";
+    }else{
+        cout<<"NO";
+    }
+
+    
 }

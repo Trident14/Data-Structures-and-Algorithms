@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<stack>
 #include<queue>
@@ -14,7 +13,7 @@ public:
         left=right=NULL;
     }
 };
-//returen the root nose of the tree
+
 Node* BuildTree(){
     int data;
     cin>>data;
@@ -28,7 +27,6 @@ Node* BuildTree(){
     return n;
 }
 int sumNodes(Node* root,int sum){
-        // Code here
     int res = 0;
     queue<Node*> q;
     q.push(root);

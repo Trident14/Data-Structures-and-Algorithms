@@ -1,69 +1,45 @@
-/* Preorder Build tree and Preorder Print 
-input:1,2,4,-1,-1,5,7,-1,-1,-1,3,-1,6,-1,-1
-output:1,2,4,5,7,3,6
-*/
-#include<iostream>
-#include<stack>
-#include<queue>
-#include<vector>
+/* inp->1 2 4 -1 -1 5 -1 -1 3 -1 6 -1 -1 
+   op -> 1 3 2 4 5 6  */
+#include<bits/stdc++.h>
 using namespace std;
 class Node{
 public:
-    int data;
+    int val;
     Node* left;
     Node* right;
     Node(int d){
-        data=d;
+        val=d;
         left=right=NULL;
     }
 };
-//returen the root nose of the tree
+// build tree traversal
 Node* BuildTree(){
-    int data;
-    cin>>data;
+    int val;
+    cin>>val;
 
-    if(data==-1){
+    if(val==-1){
         return NULL;
     }
-    Node* n=new Node(data);
+    Node* n=new Node(val);
     n->left=BuildTree(); //creates left subtree
     n->right=BuildTree(); // creates right subtree
     return n;
 }
-    // int height(Node*root){
-    //     if(root==NULL){
-    //         return 0;
-    //     }
-    //     int m=height(root->left);
-    //     int n=height(root->right);
-    //     return 1+max(m,n);
-    // }
-    // int diameter(Node*root){
-    //     if(root==NULL){
-    //         return 0;
-    //     }
-    //     int d1=height(root->left)+height(root->right);
-    //     int d2=diameter(root->left);
-    //     int d3=diameter(root->right);
 
-    //     return max(d1,max(d2,d3));
-    // }
-
-int Find_diameter(Node*root,int &dia){
+int maxPathSum(Node*root,int &maxi){
     if(root==NULL){
         return 0;
     }
-    int h1=Find_diameter(root->left,dia);
-    int h2=Find_diameter(root->right,dia);
-    dia=max(dia,h1+h2);
-    return 1+max(h1,h2);
+    int left=max(0,maxPathSum(root->left,maxi));
+    int right=max(0,maxPathSum(root->right,maxi));
+     maxi=max(maxi,left+right+root->val);
+    return root->val+max(left,right);
 }
-
 
 int main(){
     Node*root=BuildTree();
-    //cout<<height(root)
-    int dia=0;
-    Find_diameter(root,dia);
-    cout<<dia;
+    int maxi=0;
+    maxPathSum(root,maxi);
+    cout<<maxi;
+   
 }

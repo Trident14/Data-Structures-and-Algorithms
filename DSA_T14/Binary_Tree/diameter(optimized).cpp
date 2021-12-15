@@ -1,7 +1,3 @@
-/* Preorder Build tree and Preorder Print 
-input:1,2,4,-1,-1,5,7,-1,-1,-1,3,-1,6,-1,-1
-output:1,2,4,5,7,3,6
-*/
 #include<iostream>
 #include<stack>
 #include<queue>
@@ -22,7 +18,7 @@ public:
         left=right=NULL;
     }
 };
-//returen the root nose of the tree
+
 Node* BuildTree(){
     int data;
     cin>>data;

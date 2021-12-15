@@ -1,7 +1,4 @@
-#include<iostream>
-#include<stack>
-#include<queue>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 class Node{
 public:
@@ -13,7 +10,6 @@ public:
         left=right=NULL;
     }
 };
-
 Node* BuildTree(){
     int data;
     cin>>data;
@@ -27,13 +23,20 @@ Node* BuildTree(){
     return n;
 }
 
-int height(Node* root){
-    if(root==NULL) return 0;
-    int m=height(root->left);
-    int n=height(root->right);
-    return 1+max(m,n);
+int MaxPathSum(Node*root,int &maxi){
+    if(root==NULL){
+        return 0;
+    }
+    int leftSum=max(0,MaxPathSum(root->left,maxi));
+    int rightSum=max(0,MaxPathSum(root->right,maxi));
+    maxi=max(maxi,leftSum+rightSum+root->data);
+    return root->data+max(leftSum,rightSum);
 }
+
 int main(){
     Node*root=BuildTree();
-    cout<<height(root);
+    int maxi=INT_MIN;
+    MaxPathSum(root,maxi);
+    cout<<maxi<<endl;
+    
 }
