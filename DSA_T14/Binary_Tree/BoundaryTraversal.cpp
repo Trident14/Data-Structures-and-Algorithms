@@ -58,7 +58,6 @@ void addLeaf(Node*root,vector<int>&res){
     if(root->right!=NULL) addLeaf(root->right,res);
 }
 
-
 int main(){
     Node*root=BuildTree();
     vector<int>res;
