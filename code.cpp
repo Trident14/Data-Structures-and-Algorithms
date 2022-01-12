@@ -1,50 +1,56 @@
-#include<bits/stdc++.h>
-using namespace std;
-class Node{
-public:
-    int data;
-    Node* left;
-    Node* right;
-    Node(int d){
-        data=d;
-        left=right=NULL;
-    }
-};
-Node* BuildTree(){
-    int data;
-    cin>>data;
-
-    if(data==-1){
-        return NULL;
-    }
-    Node* n=new Node(data);
-    n->left=BuildTree(); //creates left subtree
-    n->right=BuildTree(); // creates right subtree
-    return n;
-}
-int maxWidth(Node*root){
-    if(root==NULL) return 0;
-    queue<pair<Node*,int>>q;
-    int ans=0;
-    q.push({root,0});
+void markParent(TreeNode* root,unordered_map<TreeNode* ,TreeNode* >parent_track){
+    if(root==NULL) return;
+    queue<TreeNode* >q;
+    q.push(root);
     while(!q.empty()){
-        int len=q.size();
-        int minele=q.front().second;
-        int first,last;
-        for(int i=0;i<len;i++){
-            int curid=q.front().second-minele;
-            Node* it=q.front().first;
-            q.pop();
-            if(i==0) first=curid;
-            if(i==len-1) last=curid;
-            if(it->left) q.push({it->left,curid*2+1});
-            if(it->right) q.push({it->right,curid*2+2});
+        TreeNode*  t=q.front();
+        q.pop();
+        if(t->left) {
+            parent_track[t->left]=t;
+            q.push(t->left);
         }
-        ans=max(ans,last-first+1);
+        if(t->right){
+            parent_track[t->right]=t;
+            q.push(t->right);
+        }  
     }
-    return ans;
 }
-int main(){
-    Node*root=BuildTree();
-    cout<<maxWidth(root);
+vector<TreeNode* > printNodesAtDistanceK(TreeNode*  root, TreeNode*  target, int K) {
+     unordered_map<TreeNode* ,TreeNode* >parent_track;
+     markParent(root,parent_track);
+     queue<TreeNode* >q1;
+     unordered_map<TreeNode* ,bool>vis;
+     q1.push(target);
+    vis[target]=true;
+    int cur=0;
+    while(!q1.empty()){
+        int len=q1.size();
+        if(cur++==k) break;
+        for(int i=0;i<len;i++){
+            TreeNode*  it=q1.front();
+            q1.pop();
+            
+            if(it->left && !vis[it->left]){
+                q1.push(it->left);
+                vis[it->left]=true;
+            }
+            
+             if(it->right && !vis[it->right]){
+                q1.push(it->right);
+                vis[it->right]=true;
+            }
+            
+            if(parent_track[it] && !vis[parent_track[it]]){
+                q1.push(parent_track[it]);
+                vis[parent_track[it]]=true;
+            }
+        }
+    }
+    vector<int>res;
+    while(!q1.empty()){
+        TreeNode*  temp=q1.front();
+        q1.pop();
+        res.push_back(temp->data);
+    }
+    return res;
 }

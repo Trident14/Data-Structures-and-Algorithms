@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<queue>
 using namespace std;
 class Node{
 public:
@@ -25,20 +26,21 @@ Node* BuildTree(){
 int maxWidth(Node*root){
     if(root==NULL) return 0;
     queue<pair<Node*,int>>q;
-    int ans=0;
     q.push({root,0});
+    int ans=0;
     while(!q.empty()){
         int len=q.size();
-        int minele=q.front().second;
         int first,last;
         for(int i=0;i<len;i++){
-            int curid=q.front().second-minele;
-            Node* it=q.front().first;
+            int cur=q.front().second;
+            Node* it =q.front().first;
             q.pop();
-            if(i==0) first=curid;
-            if(i==len-1) last=curid;
-            if(it->left) q.push({it->left,curid*2+1});
-            if(it->right) q.push({it->right,curid*2+2});
+            if(i==0) first=cur;
+            if(i==len-1) last=cur;
+
+        if(it->left) q.push({it->left,cur*2+1});
+        if(it->right) q.push({it->right,cur*2+2});
+
         }
         ans=max(ans,last-first+1);
     }
