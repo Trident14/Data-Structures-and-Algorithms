@@ -1,5 +1,3 @@
-#include<bits/stdc++.h> 
-
 int findMaxDistance(map<BinaryTreeNode<int>*, BinaryTreeNode<int>*> &mpp, BinaryTreeNode<int>* target) {
     queue<BinaryTreeNode<int>*> q; 
     q.push(target); 
@@ -53,11 +51,3 @@ BinaryTreeNode<int>* bfsToMapParents(BinaryTreeNode<int>* root,
     }
     return res; 
 }
-int timeToBurnTree(BinaryTreeNode<int>* root, int start)
-{
-    map<BinaryTreeNode<int>*, BinaryTreeNode<int>*> mpp; 
-    BinaryTreeNode<int>* target = bfsToMapParents(root, mpp, start); 
-    int maxi = findMaxDistance(mpp, target); 
-    return maxi; 
-}
- 
