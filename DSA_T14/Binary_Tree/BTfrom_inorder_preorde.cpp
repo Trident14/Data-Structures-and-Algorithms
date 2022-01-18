@@ -20,8 +20,6 @@ public:
         mp[inorder[i]]=i;
     }
     TreeNode* root=buildTree(preorder,0,preorder.size()-1,inorder,0,inorder.size()-1,mp);
-	return root;
-        
-        
+	return root;  
     }
 };
