@@ -6,6 +6,17 @@ int main(){
     cin.tie(NULL);
    int t;
    cin>>t;
-   cout<<t;
+   int x=0;
+   while(t--){
+    string str;
+    cin>>str;
+    if(str.find("+") != std::string::npos){
+        x+=1;
+    }
+    if(str.find("-") != std::string::npos){
+        x-=1;
+    }
+}
+cout<<x;
 return 0;
 }
