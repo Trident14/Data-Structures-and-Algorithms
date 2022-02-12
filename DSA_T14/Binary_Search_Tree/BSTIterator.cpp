@@ -1,3 +1,6 @@
+/*follow up is for before() this can be done by 
+    pushing right childs into stack
+    i.e right root left */
 class BSTIterator {
 private:
     stack<TreeNode*>s;
