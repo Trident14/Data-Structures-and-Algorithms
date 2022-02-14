@@ -1,5 +1,5 @@
 output.txt
-inputf.in
+input.txt
 *.exe
 code.exe
 code.cpp
