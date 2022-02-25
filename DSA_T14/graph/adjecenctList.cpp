@@ -25,7 +25,7 @@ class Graph{
 public:
 	Graph(int v){
 		V=v;
-		//cereat a  array of v linked list
+		//cerate a  array of v linked list
 		/*we have created a array of size v and each index has its own linked list
 			v[0]->[]->[]->[]
 			v[1]->[]->[]->[]->[]
