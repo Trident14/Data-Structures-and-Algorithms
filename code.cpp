@@ -1,62 +1,31 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
-class Solution {
-    bool bfs(int i,vector<int>adj[],int colour[]){
-        queue<int>q;
-        q.push(i);
-        colour[i]=1;
-        while(!q.empty()){
-            int node=q.front();
-            q.pop();
-        for(auto it:adj[node]){
-            if(colour[it]==-1){
-                colour[it]=1-colour[node];
-                q.push(it);
-            }else if(colour[it]==colour[node]) return false;
-        }
-    }
-     return true;
-}
-public:
-    bool isBipartite(int V, vector<int>adj[]){
-        int colour[V];
-        for(int i=0;i<V;i++){
-            colour[i]=-1;
-        }
+void solve() {
+        int n,x;
+        cin>>n>>x;
+        int temp=n/3;
+        cout<<(n-temp)*x<<"\n";
         
-        for(int i=0;i<V;i++){
-            if(colour[i]==-1){
-                if(!bfs(i,adj,colour)) return false;  
-            }
-        }
-        return true;
-    }
+        
+       
+}
 
-};
-
-// { Driver Code Starts.
-int main(){
-     #ifndef ONLINE_JUDGE
+int main()
+{
+    #ifndef ONLINE_JUDGE
         freopen("input.txt","r",stdin); //file input.txt is opened in reading mode i.e "r"
         freopen("output.txt","w",stdout);  //file output.txt is opened in writing mode i.e "w"
     #endif
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int V, E;
-        cin >> V >> E;
-        vector<int>adj[V];
-        for(int i = 0; i < E; i++){
-            int u, v;
-            cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
-        Solution obj;
-        bool ans = obj.isBipartite(V, adj);    
-        if(ans)cout << "1\n";
-        else cout << "0\n";  
-    }
+        
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    
+    clock_t z = clock();
+
+    int t;
+    cin >> t;
+    while (t--) solve();
+
+    cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+
     return 0;
-}  
+}
