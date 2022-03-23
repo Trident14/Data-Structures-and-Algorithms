@@ -1,11 +1,8 @@
 #include <iostream>
 using namespace std;
 void solve() {
-        int n,x;
-        cin>>n>>x;
-        int temp=n/3;
-        cout<<(n-temp)*x<<"\n";
-        
+   char temp='a';
+   cout<<'a'-96;
         
        
 }
