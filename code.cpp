@@ -1,24 +1,24 @@
-#include<iostream>
+#include <iostream>
+#include<vector>
 using namespace std;
-int pow(int a, int b){
-    int res=1;
-    while(b){
-        //check for last bit if set then multiply a to res
-        if(b&1){
-            res=res*a;
-        }
-        a=a*a;   // multiply a with a -> a, a^2,a^3....
-        b=b/2;    // right shift b
-    }
-    return res;
-}
-int main(){
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+int main()
+{
     #ifndef ONLINE_JUDGE
-        freopen("input.txt",  "r",  stdin);
-        freopen("output.txt", "w", stdout);
+        freopen("input.txt","r",stdin); //file input.txt is opened in reading mode i.e "r"
+        freopen("output.txt","w",stdout);  //file output.txt is opened in writing mode i.e "w"
     #endif
-        
-    cout<< pow(2,10);
-}
     
+      int a=0;
+      int n=5;
+      int b=1;
+      int c=0;
+      for(int i=2;i<=9;i++){
+        c=a+b;
+        a=b;
+        b=c;
+      }
+     cout<< c;
+
+    return 0;
+}
