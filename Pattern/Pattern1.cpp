@@ -1,8 +1,19 @@
+/*
+
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+* * * * * 
+  
+  
+Pattern 1
+*/
+
+
+
 #include <iostream>
 using namespace std;
-void solve() {
- 
-}
 
 int main()
 {
@@ -13,13 +24,18 @@ int main()
         
     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     
-    clock_t z = clock();
+    
 
-    int t;
-    cin >> t;
-    while (t--) solve();
+   int n;
+   cin>>n;
+ 
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cout<<"* ";
+        }
+        cout<<"\n";
+    }
 
-    cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
-
+   
     return 0;
 }

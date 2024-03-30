@@ -5,7 +5,7 @@ class Heap{
 	vector<int>v; //store data
 	void heapify(int i){
 		int left=2*i;
-		itn right=2*i+1;
+		int right=2*i+1;
 
 		int minInd=i;
 		//all index should not excede its size
