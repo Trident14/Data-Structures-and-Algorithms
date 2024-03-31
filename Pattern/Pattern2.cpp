@@ -1,14 +1,14 @@
 /*
 
 
-1 
-2 2 
-3 3 3 
-4 4 4 4 
-5 5 5 5 5 
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
 
   
-Pattern 4
+Pattern 2
 */
 
 
@@ -30,12 +30,13 @@ int main()
    int n;
    cin>>n;
  
-      for(int i=0;i<n;i++){
-        for(int j=1;j<=n-i;j++){
-            cout<<j<<" ";
+    for(int i=0;i<n;i++){
+        for(int j=0;j<=i;j++){
+            cout<<"* ";
         }
         cout<<"\n";
     }
+
    
     return 0;
 }
