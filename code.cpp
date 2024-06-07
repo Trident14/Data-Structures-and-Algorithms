@@ -1,20 +1,37 @@
-/*
-
-
-1 
-2 2 
-3 3 3 
-4 4 4 4 
-5 5 5 5 5 
-
-  
-Pattern 4
-*/
-
-
-
 #include <iostream>
+#include<algorithm>
+#include<unordered_map>
+#include<vector>
 using namespace std;
+
+
+string func()
+{
+    int n,k;
+    cin>>n>>k;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    
+    if(k==1){
+        unordered_map<int,int>mp;
+        for(auto it:arr){
+            mp[it]++;
+        }
+        
+        if(mp.size()>1){
+            
+            vector<int>temp(arr.begin(),arr.end());
+            sort(temp.begin(),temp.end());
+            if(temp==arr) return "Yes";
+            return "NO";
+        }
+        return "Yes";
+    
+    }
+    return "Yes";    
+}
 
 int main()
 {
@@ -23,19 +40,16 @@ int main()
         freopen("output.txt","w",stdout);  //file output.txt is opened in writing mode i.e "w"
     #endif
         
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    
     
 
-   int n;
-   cin>>n;
- 
-      for(int i=0;i<n;i++){
-        for(int j=1;j<=n-i;j++){
-            cout<<j<<" ";
-        }
-        cout<<"\n";
+    int t;
+    cin >> t;
+    while (t--) {
+        cout<<func()<<"\n";
+        
     }
-   
+
+   // cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+
     return 0;
 }
