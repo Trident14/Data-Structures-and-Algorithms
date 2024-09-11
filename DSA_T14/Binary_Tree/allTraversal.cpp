@@ -1,5 +1,5 @@
-#include<bits/stdc++.h>
 #include<iostream>
+#include<vector>
 #include<stack>
 using namespace std;
 class Node{
@@ -53,6 +53,11 @@ void AllTrversal(Node* root,vector<int>&pre,vector<int>&in,vector<int>&post){
     }
 }
 int main(){
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt","r",stdin); //file input.txt is opened in reading mode i.e "r"
+        freopen("output.txt","w",stdout);  //file output.txt is opened in writing mode i.e "w"
+    #endif
+        
     Node*root=BuildTree();
     vector<int>pre,in,post;
     AllTrversal(root,pre,in,post);

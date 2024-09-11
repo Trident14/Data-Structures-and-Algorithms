@@ -66,7 +66,7 @@ class AVL{
         }
         
         r->height=1+max(height(r->left),height(r->right));
-         int balance = getBalanceFactor(r);
+        int balance = getBalanceFactor(r);
         
        // Left Left Case
         if (balance < -1 && val < r->left->val)
