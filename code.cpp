@@ -66,7 +66,7 @@ class AVL{
         }
         
         r->height=1+max(height(r->left),height(r->right));
-         int balance = getBalanceFactor(r);
+        int balance = getBalanceFactor(r);
         
        // Left Left Case
         if (balance < -1 && val < r->left->val)
@@ -118,12 +118,16 @@ int main(){
     #endif
      AVL tree;
 
-    tree.insert(10);
-    tree.insert(20);
-    tree.insert(30);
-    tree.insert(40);
-    tree.insert(50);
-    tree.insert(25);
+    // tree.insert(10);
+    // tree.insert(20);
+    // tree.insert(30);
+    // tree.insert(40);
+    // tree.insert(50);
+    // tree.insert(25);
+       vector<int>vec = {10, 6, 4, -1, 1, 0, 2, -8, 8, -9, -5};
+    for (int value : vec) {
+        tree.insert(value);
+    }
 
     cout << "In-order traversal of the constructed AVL tree is: ";
     tree.printInOrder();
