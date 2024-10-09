@@ -37,8 +37,8 @@ private:
 
 public:
     IndexedPQ(int n) {
-        pq.resize(n + 1);
         qp.resize(n, -1);
+        pq.resize(n+1);
         key.resize(n, numeric_limits<int>::max());
         size = 0;
     }

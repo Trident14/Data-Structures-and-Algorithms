@@ -2,7 +2,11 @@
 #include <unordered_map>
 #include <numeric>
 using namespace std;
+/*Path compression + Rank heuristic  
+o(a(m,n)) a-> inverse ackermann function
+nearly constant
 
+*/
 class DisjointSet {
     int *arr;   // Parent array
     int *rank;  // Rank array (for union by rank)
