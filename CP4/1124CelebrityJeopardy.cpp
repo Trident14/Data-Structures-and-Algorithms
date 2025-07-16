@@ -1,12 +1,20 @@
-/*11044 - Searching for Nessy*/
+/*1124 - Celebrity jeopardy*/
 #include <iostream>
+#include<string>
 using namespace std;
 void func() {
-    int a,b;
-    cin>>a>>b;
-    cout<<((a/3)*(b/3))<<"\n";
- 
+    string temp;
+    string line;
+    while (getline(cin, line)) {
+        if (line.empty()) break; // optional: stop on empty line
+
+        temp+=line;
+        temp+="\n";
+    }
+    cout<<temp;
 }
+
+
 
 int main()
 {
@@ -19,9 +27,7 @@ int main()
     
     //clock_t z = clock();
 
-    int t;
-    cin >> t;
-    while (t--) func();
+     func();
 
    // cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 

@@ -1,12 +1,7 @@
-/*11044 - Searching for Nessy*/
 #include <iostream>
+#include <algorithm>
 using namespace std;
-void func() {
-    int a,b;
-    cin>>a>>b;
-    cout<<((a/3)*(b/3))<<"\n";
- 
-}
+//https://codeforces.com/problemset/problem/723/A
 
 int main()
 {
@@ -15,13 +10,24 @@ int main()
         freopen("output.txt","w",stdout);  //file output.txt is opened in writing mode i.e "w"
     #endif
         
-    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    //ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
     
     //clock_t z = clock();
 
-    int t;
-    cin >> t;
-    while (t--) func();
+     int a,b,c;
+    cin>>a>>b>>c;
+    
+    int arr[3];
+    arr[1]=a;
+    arr[2]=b;
+    arr[0]=c;
+    
+    sort(arr,arr+3);
+    int t=arr[2]-arr[1];
+    int y=arr[2]-arr[0];
+    
+    cout<<(t==y?t+y: max(t,y));
+    
 
    // cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
 
