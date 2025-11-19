@@ -1,7 +1,6 @@
 //quadrant.cpp
  
 #include <iostream>
-#include<iomanip>
 using namespace std;
 int main() {
     #ifndef ONLINE_JUDGE
@@ -11,14 +10,14 @@ int main() {
         
     int x,y;
     cin>>x>>y;
-    if(y==1){
-        if(x==0){
-            cout<<"ALL GOOD";
-        }else{
-            cout<<"IMPOSSIBLE";
-        }
+    if(x>0 && y>0){
+        cout<<"1";
+    }else if(x>0 && y<0){
+        cout<<"4";
+    }else if(x<0 && y<0){
+        cout<<"3";
+        
     }else{
-        double res=x/(double)(1-y);
-         cout<<fixed<<setprecision(10)<<res;
+        cout<<"2";
     }
 }

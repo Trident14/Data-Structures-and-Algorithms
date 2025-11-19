@@ -1,4 +1,20 @@
-//quadrant.cpp
+/*temperature.cpp
+The relation between the scales is linear. Since b = x when a = 0, the intercept is x. 
+Since 1 degree in a corresponds to y degrees in b, the slope is y. 
+Thus the conversion is: b = x + y*a.
+
+Set a = b = T to find when the scales match:
+T = x + y*T  =>  (1 - y)*T = x.
+
+If y = 1:
+  - If x = 0 → infinitely many solutions → ALL GOOD
+  - Else → no solution → IMPOSSIBLE
+
+If y ≠ 1:
+  T = x / (1 - y)
+
+
+*/
  
 #include <iostream>
 #include<iomanip>
