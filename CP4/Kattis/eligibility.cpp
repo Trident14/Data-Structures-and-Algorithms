@@ -1,6 +1,6 @@
-//12250 - Language Detection
+//eligibility.cpp
 #include <iostream>
-#include<unordered_map>
+#include <string>
 using namespace std;
 int main() {
     #ifndef ONLINE_JUDGE
@@ -9,13 +9,11 @@ int main() {
     #endif
     int t;
     cin>>t;
-    int i=1;
-    while(t--){
-        int a,b,c;
-        cin>>a>>b>>c;
-        string res="";
-        res=(a<=20 && b<=20 && c <=20)?"good":"bad";
-        cout<<"Case"<<" "<<(i++)<<": "<<res<<"\n";
+    while(t--)
+    {
+        int 
+      
+       
     }
    
 }
