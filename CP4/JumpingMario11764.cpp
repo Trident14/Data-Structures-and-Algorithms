@@ -1,6 +1,5 @@
 //11764 - Jumping Mario
 #include <iostream>
-#include<climits>
 using namespace std;
 
 int main()
@@ -18,15 +17,22 @@ int main()
     cin >> t;
     int tk=1;
     while (t--) {
-       int n;
-       cin>>n;
-       int val=0;
-       int maxi=INT_MIN;
-       for(int i=0;i<n;i++){
-        cin>>val;
-         maxi=max(maxi,val);
-       }
-        cout<<"Case "<<tk++<<": "<<maxi<<"\n";
+        int n;
+        cin>>n;
+        int prev=0;
+        cin>>prev;
+        int high=0,low=0;
+        for(int i=1;i<n;i++){
+            int a=0;
+            cin>>a;
+            if(prev>a){
+                low++;
+            }else if(prev<a){
+                high++;
+            }
+            prev=a;
+        }
+        cout<<"Case "<<tk++<<": "<<high<<" "<<low<<"\n";
         
     }
 
