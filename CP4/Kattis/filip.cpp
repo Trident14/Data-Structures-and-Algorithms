@@ -22,7 +22,7 @@ int main()
    int r1=reverseNum(a);
    int r2=reverseNum(b);
    cout<<(r1>r2?r1:r2)<<"\n";
-   // cerr << "Run Time : " << ((double)(clock() - z) / CLOCKS_PER_SEC);
+   
 
     return 0;
 }
