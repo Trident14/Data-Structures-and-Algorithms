@@ -1,4 +1,8 @@
-//11683 - Laser Sculpture
+//11786 - Global Raining at Bididibus 
+/*
+Since each index represents 1 unit of width, the difference of indices gives 
+the actual water length.
+*/
 #include <iostream>
 #include<stack>
 using namespace std;
