@@ -1,3 +1,9 @@
+//bossbattle.cpp  
+/*Because the boss can always move into one of the 
+    three pillars affected by the last bomb, a bomb cannot 
+    eliminate all three at once. Hence we need to eliminate pillars one by one, requiring
+    𝑛−2 bombs.
+*/
 #include <iostream>
 using namespace std;
 
