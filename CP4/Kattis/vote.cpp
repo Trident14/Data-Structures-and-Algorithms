@@ -16,21 +16,20 @@ int main(){
         int maxi=0;
         int sum=0;
         int  diff=0;
-       
+        vector<int>arr(n);
         for(int i=0;i<n;i++){
-            int arr;
-            cin>>arr;
-            if(arr>maxi){
-                maxi=arr;
+            cin>>arr[i];
+            if(arr[i]>maxi){
+                maxi=arr[i];
                 res=i+1;
-               
             }
-            if(arr==maxi){
-                diff++;
-            }
-            sum+=arr;
+            sum+=arr[i];
         }
-        
+        for(auto it:arr){
+           if(it==maxi){
+            diff++;
+           }
+        }
         if(diff>1){
             cout<<"no winner"<<"\n";
             
