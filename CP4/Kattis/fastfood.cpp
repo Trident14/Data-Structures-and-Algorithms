@@ -50,7 +50,7 @@ int main()
         int res=0;
         
        
-        for(auto it:mp){
+        for(auto &it:mp){
             //cout<<it.first <<"-> ";
             int mini=INT_MAX;
             for(auto x:it.second){
